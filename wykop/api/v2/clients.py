@@ -199,6 +199,20 @@ class WykopAPIv2(BaseWykopAPIv2):
         }
         return self.request('links', api_params=api_params)
 
+    def get_followed(self, username, page=1):
+        api_params = {
+            'followed': username,
+            'page': page
+        }
+        return self.request('profiles', api_params=api_params)
+
+    def get_followers(self, username, page=1):
+        api_params = {
+            'followers': username,
+            'page': page
+        }
+        return self.request('profiles', api_params=api_params)
+
     # mywykop
 
     @login_required
